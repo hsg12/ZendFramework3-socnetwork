@@ -18,7 +18,6 @@ class FriendController extends AbstractActionController
     {
         $this->entityManager = $entityManager;
         $this->repository = $this->entityManager->getRepository(Relationship::class);
-        echo 'Hello';
     }
 
     public function indexAction()
