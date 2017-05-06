@@ -1,0 +1,25 @@
+<?php
+$headTitle = 'Home page';
+$this->headTitle($headTitle);
+?>
+<?php if (! $this->identity()) : ?>
+    <br>
+    <h4>Welcome to SocNet</h4>
+    <div>Please sign up to make a friends.</div>
+    <br>
+    <br>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="jumbotron">
+                <img src="<?= $this->basePath('img/jumbotron-image.jpg') ?>"
+                     alt="soc-image"
+                     class="img-responsive"
+                     width="100%"
+                     height="100%"
+                >
+            </div>
+        </div>
+    </div>
+<?php else : ?>
+    <?php echo $this->timeline; ?>
+<?php endif; ?>

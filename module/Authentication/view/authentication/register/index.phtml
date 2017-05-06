@@ -1,0 +1,93 @@
+<?php
+$this->headScript()->appendScript('$(function(){$("ul.nav.navbar-nav.navbar-right li").eq(0).addClass("active");})');
+
+$headTitle = 'Register page';
+$this->headTitle($headTitle);
+
+$form = $this->form;
+$form->setAttributes([
+    'action' => $this->url('register'),
+]);
+$form->prepare();
+
+foreach ($this->form as $element) {
+    $attributes = $element->getAttributes();
+    if (isset($attributes['required']) && $attributes['required'] == 'required') {
+        $element->setLabel($element->getLabel() . ' *');
+    }
+}
+
+$captcha = $form->get('captcha');
+$captcha->setLabel($captcha->getLabel() . ' *');
+
+$captchaValue = $form->get('captcha_real_value');
+?>
+<br>
+<h3><?= $headTitle ?></h3>
+<br>
+<br>
+<div class="row">
+    <div class="col-lg-9 col-md-11 col-sm-12">
+        <?= $this->form()->openTag($form) ?>
+        <div class="form-group">
+            <div class="col-sm-3">
+                <?= $this->formLabel($form->get('username')) ?>
+            </div>
+            <div class="col-sm-9">
+                <?= $this->formText($form->get('username')) ?>
+                <?= $this->formElementErrors($form->get('username')) ?>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-3">
+                <?= $this->formLabel($form->get('email')) ?>
+            </div>
+            <div class="col-sm-9">
+                <?= $this->formText($form->get('email')) ?>
+                <?= $this->formElementErrors($form->get('email')) ?>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-3">
+                <?= $this->formLabel($form->get('password')) ?>
+            </div>
+            <div class="col-sm-9">
+                <?= $this->formPassword($form->get('password')) ?>
+                <?= $this->formElementErrors($form->get('password')) ?>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-3">
+                <?= $this->formLabel($form->get('confirmPassword')) ?>
+            </div>
+            <div class="col-sm-9">
+                <?= $this->formPassword($form->get('confirmPassword')) ?>
+                <?= $this->formElementErrors($form->get('confirmPassword')) ?>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-3">
+                <?= $this->formLabel($captcha) ?>
+            </div>
+            <div class="col-sm-9 app-captcha">
+                <div class="captcha-box">
+                    <?php
+                    $appCaptcha = $this->captcha();
+                    echo $appCaptcha->str;
+                    $captchaValue->setValue($appCaptcha->sum);
+                    echo $this->formHidden($captchaValue);
+                    echo $this->formText($captcha)
+                    ?>
+                </div>
+                <?= $this->formElementErrors($captcha) ?>
+            </div>
+        </div>
+        <br>
+        <div class="form-group">
+            <div class="col-sm-12 col-sm-offset-3">
+                <?= $this->formSubmit($form->get('submit')) ?>
+            </div>
+        </div>
+        <?= $this->form()->closeTag() ?>
+    </div>
+</div>

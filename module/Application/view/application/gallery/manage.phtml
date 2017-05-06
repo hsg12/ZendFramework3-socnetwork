@@ -1,0 +1,70 @@
+<?php
+$headTitle = 'Manage gallery';
+$this->headTitle($headTitle);
+
+if ($this->form) {
+    $form = $this->form;
+    $form->setAttribute('action', $this->url('gallery', ['action' => 'manage', 'username' => $this->user->getUsername()]));
+    $form->prepare();
+}
+?>
+<br>
+<div class="row">
+    <div class="col-xs-6">
+        <h4><?= $headTitle ?></h4>
+    </div>
+    <div class="col-xs-6">
+        <div class="pull-right">
+            <a href="<?= $this->url('gallery', ['action' => 'show', 'username' => $this->user->getUsername()]) ?>"
+               class="btn btn-default"
+            >
+                Back To Gallery
+            </a>
+        </div>
+    </div>
+</div>
+<br>
+<hr>
+<h5>Add To Gallery</h5>
+<br>
+<?php if ($this->form) : ?>
+    <?= $this->flashMessenger()->render('success', ['success-message']) ?>
+    <div class="row">
+        <div class="col-sm-12">
+            <?= $this->form()->openTag($form) ?>
+            <?= $this->formFile($form->get('file')) ?>
+            <?= $this->formSubmit($form->get('submit')) ?>
+            <?= $this->formElementErrors($form->get('file')) ?>
+            <?= $this->form()->closeTag() ?>
+        </div>
+    </div>
+<?php endif; ?>
+<hr>
+<br>
+<h5>Remove From Gallery</h5>
+<br>
+<div class="row">
+    <?php if ($this->images) : ?>
+        <?php foreach ($this->images as $image) : ?>
+            <div class="col-sm-3">
+                <div class="panel panel-default">
+                    <div class="panel-body user-image-box">
+                        <img src="<?= $this->escapeHtml($image->getImage()) ?>" class="img-responsive" alt="upload image">
+                    </div>
+                    <div class="panel-footer clearfix">
+                        <form action="<?= $this->url('gallery', [
+                                                                 'action' => 'delete',
+                                                                 'username' => $this->user->getUsername(),
+                                                                 'id' => $image->getId()
+                                                                ])?>"
+                              method="post"
+                              class="confirm-delete-image pull-right"
+                        >
+                            <button class="btn btn-danger btn-xs">Delete</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        <?php endforeach; ?>
+    <?php endif; ?>
+</div>

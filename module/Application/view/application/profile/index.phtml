@@ -1,0 +1,48 @@
+<?php
+$headTitle = 'User profile';
+$this->headTitle($headTitle);
+?>
+<br>
+<div class="row">
+    <div class="col-sm-5">
+        <h4><?= $headTitle ?></h4>
+        <?= $this->flashMessenger()->render('success', ['success-message']) ?>
+        <br>
+        <div class="row profile-box">
+            <div class="col-sm-6">
+                <?= $this->partial('partial/userProfile', ['user' => $this->user]) ?>
+            </div>
+            <?php if ( ($this->isFriends($this->identity(), $this->user) ) || ( $this->identity()->getId() === $this->user->getId() ) ) : ?>
+            <div class="col-sm-6">
+                <a href="<?= $this->url('gallery', ['action' => 'show', 'username' => $this->user->getUsername()]) ?>" class="btn btn-default pull-right">Gallery</a>
+            </div>
+            <?php endif; ?>
+        </div>
+        <hr>
+        <?php if ($this->pendingAnswerIdentityUser) : ?> <!-- request information for identified user -->
+            <p>Waiting for <strong><?= $this->getNameOrUsername($this, $this->user) ?></strong> to accept your request</p>
+        <?php elseif ($this->pendingAnswerUser) : ?> <!-- request information for not identified user -->
+            <p><strong><?= $this->getNameOrUsername($this, $this->user) ?></strong> sent request to you</p>
+        <?php else : ?>
+            <?php if (! $this->isFriends && $this->user->getId() != $this->identity()->getId()) : ?>
+                <form action="<?= $this->url('friend', ['action' => 'add', 'username' => $this->user->getUsername()]) ?>" method="post">
+                    <button class="btn btn-primary">Add as friend</button>
+                </form>
+            <?php endif; ?>
+        <?php endif; ?>
+        <br>
+        <br>
+    </div>
+    <div class="col-sm-4 col-sm-offset-3">
+        <h4><?= $this->getNameOrUsername($this, $user) ?>'s friends</h4>
+        <?php if (! $this->friends) : ?>
+        <h5>List is empty</h5>
+        <?php else : ?>
+            <br>
+            <?php foreach ($this->friends as $friend) : ?>
+                <?= $this->partial('partial/userProfile', ['user' => $friend]) ?>
+            <?php endforeach; ?>
+        <?php endif; ?>
+    </div>
+</div>
+<br>

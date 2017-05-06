@@ -1,0 +1,18 @@
+<div class="media">
+    <a href="<?= $this->url('profile', ['username' => $this->user->getUsername()]) ?>" class="pull-left">
+        <img src="<?= $this->getAvatarUrl($this->user) ?>"
+             class="media-object",
+             alt="<?= $this->getNameOrUsername($this, $this->user) ?>"
+        >
+    </a>
+    <div class="media-body">
+        <h5 class="media-heading">
+            <a href="<?= $this->url('profile', ['username' => $this->user->getUsername()]) ?>">
+                <?= $this->getNameOrUsername($this, $this->user) ?>
+            </a>
+        </h5>
+        <div>
+            <?= $this->user->getLocation() ? $this->escapeHtml($this->user->getLocation()) : false; ?>
+        </div>
+    </div>
+</div>

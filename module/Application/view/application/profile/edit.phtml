@@ -1,0 +1,41 @@
+<?php
+$headTitle = 'Edit profile';
+$this->headTitle($headTitle);
+
+$form = $this->form;
+$form->setAttribute('action', $this->url('profile', ['action' => 'edit', 'username' => $this->user->getUsername()]));
+$form->prepare();
+?>
+<br>
+<h4><?= $headTitle ?></h4>
+<br>
+<div class="row">
+    <div class="col-sm-6">
+        <?= $this->form()->openTag($form) ?>
+        <div class="row">
+            <div class="col-sm-6">
+                <?= $this->formRow($form->get('firstName')) ?>
+            </div>
+            <div class="col-sm-6">
+                <?= $this->formRow($form->get('lastName')) ?>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-sm-12">
+                <?= $this->formRow($form->get('password')) ?>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-sm-12">
+                <?= $this->formRow($form->get('location')) ?>
+            </div>
+        </div>
+        <br>
+        <?= $this->formRow($form->get('submit')) ?>
+        <br>
+        <?= $this->form()->closeTag() ?>
+    </div>
+</div>
+<br>

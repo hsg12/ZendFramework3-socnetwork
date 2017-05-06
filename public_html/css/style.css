@@ -1,0 +1,201 @@
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    padding-top: 60px;
+    padding-bottom: 40px;
+    /* Margin bottom by footer height */
+    margin-bottom: 90px;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 90px;
+}
+
+div.container a.navbar-brand > img {
+    display: inline;
+    margin-top: -2px;
+}
+
+div.container a.navbar-brand {
+    padding-left: 10px;
+}
+
+.navbar-brand {
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-size: 22px;
+    color: #00A9FE !important;
+}
+
+#login-form .control-label, #register-form .control-label {
+    text-align: left;
+}
+
+.color-red {
+    color: #d00;
+}
+
+.captcha-box {
+    font-size: 1.5em;
+    text-shadow: 1px 1px 2px #000, 0 0 1em #000;
+}
+
+#captcha {
+    border: 1px solid #dddddd;
+    border-radius: 3px;
+    padding: 0 5px;
+    width: 50px;
+    border-top: 2px solid #ECECEC;
+}
+
+form ul li {
+    color: #d00;
+}
+
+.navbar-nav > li > a {
+    margin: 12.5px 1px;
+}
+
+.form-logout {
+    background: none;
+    border: none;
+    display: block;
+    padding: 3px 20px;
+    clear: both;
+    font-weight: normal;
+    line-height: 1.42857143;
+    color: #333333;
+    white-space: nowrap;
+    width: 100%;
+    text-align: left;
+}
+
+.form-logout:hover, .form-logout:focus {
+    color: #fff;
+    background: #4582EC;
+}
+
+.success-message {
+    color: #d00;
+    list-style: none;
+    padding-left: 0;
+}
+
+.portfolio-box a:hover, .portfolio-box a:focus {
+    text-decoration: none;
+}
+
+.back-to-top {
+    cursor: pointer;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display:none;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.pagination {
+    margin-bottom: 0;
+}
+
+.data-like-block {
+    background-color: #f6f6f6;
+    display: inline-block;
+    margin-left: 0;
+    padding: 2px 0px 2px 2px;
+    border-radius: 50px;
+}
+
+.data-like-block li {
+    font-size: 14px;
+}
+
+.data-like-block li a:hover, .data-like-block li a:focus {
+    text-decoration: none;
+}
+
+.replay-button {
+    margin-top: 5px;
+}
+
+li.already-liked {
+    display: none;
+}
+
+.breadcrumb {
+    margin-top: 8px;
+    margin-bottom: 0;
+    padding: 4px 10px;
+}
+
+/*   Styles for admin, search user form   */
+
+.add-on .input-group-btn > .btn {
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+
+.input-group-btn button {
+    height: 40px !important;
+}
+
+.input-group-btn button:hover .glyphicon-search {
+    color: #888;
+}
+
+.glyphicon-search {
+    color: #ccc;
+}
+
+/*   End styles   */
+
+#admin-search-user-form-result li {
+    padding-left: 15px;
+}
+
+.profile-box {
+    margin-top: 15px;
+}
+
+.delete-user-form {
+    display: none;
+}
+
+.add_to_gallery {
+    margin-left: 10px;
+}
+
+.user-image-box {
+    height: 150px;
+    overflow: auto;
+}
+
+.user-image-box img {
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+}
+
+.admins-list-ol {
+    padding-left: 16px;
+}
+
+.delete-form button {
+    border: none;
+    background: none;
+    color: #4582ec;
+    padding-left: 0;
+}
+
+.delete-form button:hover {
+    color: #134fb8;
+}

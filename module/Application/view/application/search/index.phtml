@@ -1,0 +1,22 @@
+<?php
+$headTitle = 'Search results';
+$this->headTitle($headTitle);
+
+$currentUsername = $this->identity()->getUsername();
+?>
+<br>
+<div class="row">
+    <div class="col-sm-12">
+        <h4>Your search for "<?= $this->escapeHtml($this->search) ?>"</h4>
+        <?php if (! $this->users) : ?>
+            <p>No results found, sorry.</p>
+        <?php else : ?>
+            <br>
+            <?php foreach ($this->users as $user) : ?>
+                <?php if ($user->getUsername() == $currentUsername) continue ?>
+                <?= $this->partial('partial/userProfile', ['user' => $user]) ?>
+            <?php endforeach; ?>
+        <?php endif; ?>
+    </div>
+</div>
+<br>

@@ -1,0 +1,136 @@
+<?php $user = $this->identity() ?>
+<?= $this->doctype() ?>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <?= $this->headTitle() ?>
+
+        <?= $this->headMeta()
+            ->appendName('viewport', 'width=device-width, initial-scale=1.0')
+            ->appendHttpEquiv('X-UA-Compatible', 'IE=edge')
+        ?>
+
+        <!-- Le styles -->
+        <?= $this->headLink(['rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/img/favicon.ico'])
+            ->prependStylesheet($this->basePath('css/lightbox.css'))
+            ->prependStylesheet($this->basePath('css/jquery-filestyle.min.css'))
+            ->prependStylesheet($this->basePath('css/font-awesome.min.css'))
+            ->prependStylesheet($this->basePath('css/j-confirm-action.css'))
+            ->prependStylesheet($this->basePath('css/style.css'))
+            ->prependStylesheet($this->basePath('css/readable-bootstrap.min.css'))
+        ?>
+
+        <!-- Scripts -->
+        <?= $this->headScript()
+            ->prependFile($this->basePath('js/lightbox.min.js'))
+            ->prependFile($this->basePath('js/jquery-filestyle.min.js'))
+            ->prependFile($this->basePath('js/share42/share42.js'))
+            ->prependFile($this->basePath('js/app-script.js'))
+            ->prependFile($this->basePath('js/j-confirm-action.js'))
+            ->prependFile($this->basePath('js/bootstrap.min.js'))
+            ->prependFile($this->basePath('js/jquery-3.1.0.min.js'))
+        ?>
+    </head>
+    <body>
+
+    <!-- Soc icons -->
+    <div class="hidden-xs">
+        <div class="share42init" data-top1="300" data-top2="70" data-margin="5"></div>
+    </div>
+    <!-- end soc icons -->
+
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="<?= $this->url('home') ?>">
+                        <img src="<?= $this->basePath('img/lets-talk.png') ?>" width="40" class="hidden-sm" alt="logo">
+                        <span>SocNet</span>
+                    </a>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <?php if ($user) : ?>
+                        <?= $this->navigation('top_navigation')->menu()->setUlClass("nav navbar-nav")->render() ?>
+                        <form class="navbar-form navbar-left" role="search" action="/search" method="post">
+                            <div class="form-group">
+                                <input class="form-control" placeholder="Find people" type="text" name="searchPeople">
+                            </div>
+                            <button type="submit" class="btn btn-default">Search</button>
+                        </form>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="dropdown">
+                                <a href="<?= $this->url('profile', ['username' => $user->getUsername()]) ?>"
+                                   class="dropdown-toggle"
+                                   data-toggle="dropdown"
+                                   role="button"
+                                   aria-expanded="false"
+                                   title="<?= $this->getNameOrUsername($this, $user) ?>"
+                                >
+                                    <span>Hi&nbsp;
+                                        <strong><?= $this->cutString($this->getNameOrUsername($this, $user), 10) ?></strong>
+                                    </span>
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="<?= $this->url('profile', ['username' => $user->getUsername()]) ?>">Profile</a></li>
+                                    <li>
+                                        <a href="<?= $this->url('profile', ['username' => $user->getUsername(), 'action' => 'edit']) ?>">
+                                            Update profile
+                                        </a>
+                                    </li>
+                                    <?php if ($user && ($user->getRole() === 'superadmin' || $user->getRole() === 'admin')) : ?>
+                                    <li><a href="<?= $this->url('admin') ?>">Admin area</a></li>
+                                    <?php endif; ?>
+                                    <li class="divider"></li>
+                                    <form action="/logout" method="post">
+                                        <button class="form-logout">Log Out</button>
+                                    </form>
+                                </ul>
+                            </li>
+                        </ul>
+                    <?php else : ?>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="/register">Sign Up</a></li>
+                            <li><a href="/login">Log In</a></li>
+                        </ul>
+                    <?php endif; ?>
+                </div>
+            </div>
+        </nav>
+        <div class="container">
+            <?= $this->content ?>
+        </div>
+        <footer class="footer">
+            <hr>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6 col-sm-push-6">
+                        <p class="portfolio-box pull-right">
+                            <a href="/portfolio"><i class="fa fa-briefcase"></i> Portfolio</a>
+                        </p>
+                    </div>
+                    <div class="col-sm-6 col-sm-pull-6">
+                        <p>&copy; <?= $this->getYear() ?> by PHP-User. All rights reserved.</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- For scrolling to the top -->
+        <a id="back-to-top"
+           href="#"
+           class="btn btn-primary back-to-top"
+           role="button"
+           data-toggle="tooltip"
+           data-placement="left">
+            <span class="glyphicon glyphicon-chevron-up"></span>
+        </a>
+
+        <?= $this->inlineScript() ?>
+
+    </body>
+</html>

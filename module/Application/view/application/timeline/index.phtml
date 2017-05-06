@@ -1,0 +1,146 @@
+<?php
+$headTitle = 'My chats';
+$this->headTitle($headTitle);
+?>
+<br>
+<h4><?= $headTitle ?></h4>
+<?php if (! $this->hasFriends) : ?>
+    <p>You have no chats yet</p>
+<?php else : ?>
+<div class="row">
+    <div class="col-sm-5">
+        <?php if (! $this->statuses) : ?>
+            <p>There's nothing in your timeline, yet.</p>
+        <?php else : ?>
+            <br>
+            <?php foreach ($this->statuses as $status) : ?>
+                <div class="media">
+                    <a href="<?= $this->url('profile', ['username' => $status->getUser()->getUsername()]) ?>"
+                       class="pull-left"
+                    >
+                        <img class="media-object"
+                             src="<?= $this->getAvatarUrl($this->identity()) ?>"
+                             alt="<?= $this->getNameOrUsername($this, $this->identity()) ?>"
+                        >
+                    </a>
+                    <div class="media-body">
+                        <h5 class="media-heading">
+                            <a href="<?= $this->url('profile', ['username' => $status->getUser()->getUsername()]) ?>">
+                                <?= $this->escapeHtml($this->getNameOrUsername($this, $status->getUser())) ?>
+                            </a>
+                        </h5>
+                        <p><?= nl2br($this->replaceBadWords($this->escapeHtml($status->getContent()))) ?></p>
+                        <ul class="list-inline data-like-block">
+                            <li><?= $this->getHumanTiming($status->getCreatedAt()); ?></li> |
+                            <?php if (( $this->identity()->getId() !== $status->getUser()->getId()) && ( $this->isFriends($this->identity()->getId(), $status->getUser()->getId())) ) : ?>
+                                <li>
+                                    <a href="#"
+                                       class="like-button"
+                                       data-id="<?= $status->getId() ?>"
+                                       data-identity="<?= $this->identity()->getId() ?>"
+                                    >
+                                        <i class="fa fa-thumbs-o-up"></i> Like
+                                    </a>
+                                    &nbsp;
+                                    <span class="like-count"><?= $this->getLikeCount($status, false) ?></span>
+                                </li>
+                                <li class="already-liked"></li>
+                            <?php else : ?>
+                                <li><?= $this->getLikeCount($status) ?></li>
+                            <?php endif; ?>
+                        </ul>
+                        <div class="clearfix"></div>
+
+                        <?php $replays = $this->getStatusReplay($status->getId())  ?>
+                        <?php if ($replays) : ?>
+                            <?php foreach ($replays as $replay) : ?>
+                            <div class="media">
+                                <a href="<?= $this->url('profile', ['username' => $replay->getUser()->getUsername()]) ?>"
+                                   class="pull-left"
+                                >
+                                    <img class="media-object"
+                                         src="<?= $this->getAvatarUrl($replay->getUser()) ?>"
+                                         alt="<?= $this->getNameOrUsername($this, $replay->getUser()) ?>"
+                                    >
+                                </a>
+                                <div class="media-body">
+                                    <h5 class="media-heading">
+                                        <a href="<?= $this->url('profile', ['username' => $replay->getUser()->getUsername()]) ?>">
+                                            <?= $this->escapeHtml($this->getNameOrUsername($this, $replay->getUser())) ?>
+                                        </a>
+                                    </h5>
+                                    <p><?= nl2br($this->replaceBadWords($this->escapeHtml($replay->getContent()))) ?></p>
+                                    <ul class="list-inline data-like-block">
+                                        <li><?= $this->getHumanTiming($replay->getCreatedAt()); ?></li> |
+                                        <?php if (( $this->identity()->getId() !== $replay->getUser()->getId() ) && ( $this->isFriends($this->identity()->getId(), $replay->getUser()->getId()) )) : ?>
+                                            <li>
+                                                <a href="#"
+                                                   class="like-button"
+                                                   data-id="<?= $replay->getId() ?>"
+                                                   data-identity="<?= $this->identity()->getId() ?>"
+                                                >
+                                                    <i class="fa fa-thumbs-o-up"></i> Like
+                                                </a>
+                                                &nbsp;
+                                                <span class="like-count"><?= $this->getLikeCount($replay, false) ?></span>
+                                            </li>
+                                            <li class="already-liked"></li>
+                                        <?php else : ?>
+                                            <li><?= $this->getLikeCount($replay) ?></li>
+                                        <?php endif; ?>
+                                    </ul>
+                                </div>
+                            </div>
+                            <?php endforeach; ?>
+                        <?php endif; ?>
+
+                        <a class="btn btn-primary btn-xs replay-button"
+                           role="button"
+                           data-toggle="collapse"
+                           href="<?= '#collapseExample-' . $status->getId() ?>"
+                           aria-expanded="false"
+                           aria-controls="collapseExample"
+                        >
+                            Replay
+                        </a>
+                        <div class="collapse" id="<?= 'collapseExample-' . $status->getId() ?>">
+                            <br>
+                            <div class="well">
+                                <form action="<?= $this->url('timeline', ['page' => $this->pageNumber, 'action' => 'replay', 'id' => $status->getId()]) ?>"
+                                      method="post"
+                                      role="form"
+                                      data-id="<?= $status->getId() ?>"
+                                      class="replay-form"
+                                >
+                                    <div class="form-group">
+                                        <textarea name="<?= 'replay-' . $status->getId() ?>"
+                                                  class="form-control"
+                                                  rows="2"
+                                                  placeholder="Reply to this status"
+                                        ></textarea>
+                                        <ul class="formError"></ul>
+                                    </div>
+                                    <input type="submit" value="Send" class="btn btn-default btn-sm">
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <br>
+            <?php endforeach; ?>
+        <?php endif; ?>
+    </div>
+</div>
+    <!-- For pagination -->
+    <?php if ($this->statuses) : ?>
+        <?php
+        echo $this->paginationControl(
+            $this->statuses,
+            'sliding',
+            'partial/paginator',
+            ['route' => 'timeline']
+        );
+        ?>
+    <?php endif; ?>
+<?php endif; ?>

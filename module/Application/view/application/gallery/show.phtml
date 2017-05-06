@@ -1,0 +1,60 @@
+<?php
+$headTitle = 'User gallery';
+$this->headTitle($headTitle);
+?>
+<br>
+<?php if ($this->user->getId() === $this->identity()->getId()) : ?>
+<div class="row">
+    <div class="col-xs-6">
+        <h4>My gallery</h4>
+    </div>
+    <div class="col-xs-6">
+        <div class="pull-right">
+            <a href="<?= $this->url('gallery', ['action' => 'manage', 'username' => $this->user->getUsername()]) ?>"
+               class="btn btn-default"
+            >
+                Add/Remove Images
+            </a>
+        </div>
+    </div>
+</div>
+<?php else : ?>
+<div class="media">
+    <a href="<?= $this->url('profile', ['username' => $this->user->getUsername()]) ?>"
+       class="pull-left"
+    >
+        <img class="media-object"
+             src="<?= $this->getAvatarUrl($this->user) ?>"
+             alt="<?= $this->getNameOrUsername($this, $this->user) ?>"
+        >
+    </a>
+    <div class="media-body">
+        <h5 class="media-heading">
+            <a href="<?= $this->url('profile', ['username' => $this->user->getUsername()]) ?>">
+                <?= $this->escapeHtml($this->getNameOrUsername($this, $this->user)) ?>
+            </a>
+        </h5>
+        <p>Gallery</p>
+
+    </div>
+</div>
+<?php endif; ?>
+<hr>
+<div class="row">
+<?php if (! $this->images) : ?>
+    <div class="col-sm-3">Gallery is empty</div>
+<?php else : ?>
+    <br>
+    <?php foreach ($this->images as $image) : ?>
+        <div class="col-sm-3">
+            <div class="panel panel-default">
+                <div class="panel-body user-image-box">
+                    <a href="<?= $this->escapeHtml($image->getImage()) ?>" data-lightbox="image-group">
+                        <img src="<?= $this->escapeHtml($image->getImage()) ?>" class="img-responsive" alt="upload image">
+                    </a>
+                </div>
+            </div>
+        </div>
+    <?php endforeach; ?>
+<?php endif; ?>
+</div>

@@ -1,0 +1,52 @@
+<?php
+$headTitle = 'Friends';
+$this->headTitle($headTitle);
+?>
+<br>
+<div class="row">
+    <div class="col-sm-4 col-sm-offset-1 col-sm-push-7">
+        <h4>Friend requests</h4>
+        <?php if (! $this->usersRequest) : ?>
+            <p>You have no friend requests</p>
+        <?php else : ?>
+            <br>
+            <?php foreach ($this->usersRequest as $friend) : ?>
+                <p>You have request from <strong><?= $this->getNameOrUsername($this, $friend) ?></strong></p>
+                <?= $this->partial('partial/userProfile', ['user' => $friend]) ?>
+                <br>
+                <form action="<?= $this->url('friend', ['action' => 'accept', 'username' => $friend->getUsername()]) ?>" method="post">
+                    <button class="btn btn-primary">Accept friend request</button>
+                </form>
+                <hr>
+            <?php endforeach; ?>
+        <?php endif; ?>
+        <br>
+    </div>
+    <div class="col-sm-7 col-sm-pull-5">
+        <h4>Your friends</h4>
+        <?php if (! $this->friends) : ?>
+            <p>List is empty</p>
+        <?php else : ?>
+            <br>
+            <?php foreach ($this->friends as $friend) : ?>
+                <div class="row">
+                    <div class="col-lg-8 col-md-7">
+                        <?= $this->partial('partial/userProfile', ['user' => $friend]) ?>
+                    </div>
+                    <div class="col-lg-4 col-md-5">
+                        <form action="<?= $this->url('friend', ['action' => 'delete', 'username' => $friend->getUsername()]) ?>"
+                              method="post"
+                              class="confirm-delete-friend"
+                        >
+                            <button class="btn btn-default">Delete from friends list</button>
+                        </form>
+                    </div>
+                </div>
+                <hr>
+            <?php endforeach; ?>
+        <?php endif; ?>
+        <br>
+        <br>
+    </div>
+</div>
+<br>
