@@ -105,7 +105,7 @@ class UpdateForm extends Form
         $this->add($role);
 
         $file = new Element\File('file');
-        $file->setLabel('Change avatar:');
+        $file->setLabel('Change profile image:');
         $role->setLabelAttributes([
             'class' => 'control-label',
         ]);
