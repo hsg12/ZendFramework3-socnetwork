@@ -85,20 +85,45 @@ class ProfileController extends AbstractActionController
         $request = $this->getRequest();
         if ($request->isPost()) {
 
-            /* In order to have the choice, to change or not to change password  */
+            $data = $request->getPost();
+
+            $files = $request->getFiles()->toArray();
+            if ($files) { $fileName = $files['file']['name']; }
+
+            /* In order to have the choice, to change or not to change password and image  */
             $postArray = $request->getPost()->toArray();
 
             if (strlen($postArray['password']) > 0) {
-                $form->setValidationGroup(['firstName', 'lastName', 'password', 'location']);
+                if ($fileName) {
+                    $form->setValidationGroup(['firstName', 'lastName', 'location', 'file', 'password']);
+                    $data = array_merge_recursive(
+                        $request->getPost()->toArray(),
+                        $request->getFiles()->toArray()
+                    );
+                } else {
+                    $form->setValidationGroup(['firstName', 'lastName', 'location', 'password']);
+                }
             } else {
-                $form->setValidationGroup(['firstName', 'lastName', 'location']);
+                if ($fileName) {
+                    $form->setValidationGroup(['firstName', 'lastName', 'location', 'file']);
+                    $data = array_merge_recursive(
+                        $request->getPost()->toArray(),
+                        $request->getFiles()->toArray()
+                    );
+                } else {
+                    $form->setValidationGroup(['firstName', 'lastName', 'location']);
+                }
             }
             /* End block */
 
-            $form->setData($request->getPost());
+            $form->setData($data);
 
             if ($form->isValid()) {
                 $user = $form->getData();
+
+                if ($fileName) {
+                    $user->setImage('/img/user/' . $fileName);
+                }
 
                 /* In order, to not work, when an empty password  */
                 if (strlen($postArray['password']) >= 2) {

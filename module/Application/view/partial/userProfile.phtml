@@ -1,8 +1,10 @@
 <div class="media">
     <a href="<?= $this->url('profile', ['username' => $this->user->getUsername()]) ?>" class="pull-left">
-        <img src="<?= $this->getAvatarUrl($this->user) ?>"
-             class="media-object",
+        <img class="media-object",
              alt="<?= $this->getNameOrUsername($this, $this->user) ?>"
+             src="<?= $this->user->getImage() ?>"
+             width="40"
+             height="40"
         >
     </a>
     <div class="media-body">

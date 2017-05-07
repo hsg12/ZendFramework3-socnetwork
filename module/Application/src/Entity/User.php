@@ -89,6 +89,13 @@ class User
     private $createdAt;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="image", type="string", length=100, precision=0, scale=0, nullable=true, unique=false)
+     */
+    private $image = '/img/user/no-image.png';
+
+    /**
      * @Annotation\Type("Zend\Form\Element\Submit")
      * @Annotation\Attributes({"class":"btn btn-default", "value":"Submit"})
      * @Annotation\AllowEmpty({"allowempty":"true"})
@@ -326,6 +333,30 @@ class User
     public function getCreatedAt()
     {
         return $this->createdAt;
+    }
+
+    /**
+     * Set image
+     *
+     * @param string $image
+     *
+     * @return User
+     */
+    public function setImage($image)
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * Get image
+     *
+     * @return string
+     */
+    public function getImage()
+    {
+        return $this->image;
     }
 }
 

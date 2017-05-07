@@ -104,6 +104,17 @@ class UpdateForm extends Form
         ]);
         $this->add($role);
 
+        $file = new Element\File('file');
+        $file->setLabel('Change avatar:');
+        $role->setLabelAttributes([
+            'class' => 'control-label',
+        ]);
+        $file->setAttributes([
+            'class' => 'form-control jfilestyle',
+            'id'    => 'file',
+        ]);
+        $this->add($file);
+
         $submit = new Element\Submit('submit');
         $submit->setAttributes([
             'class' => 'btn btn-default',

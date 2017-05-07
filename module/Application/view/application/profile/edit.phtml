@@ -33,6 +33,14 @@ $form->prepare();
             </div>
         </div>
         <br>
+        <div class="row">
+            <div class="col-sm-12">
+                <div><?= $this->formLabel($form->get('file')) ?></div>
+                <div><?= $this->formFile($form->get('file')) ?></div>
+                <div><?= $this->formElementErrors($form->get('file')) ?></div>
+            </div>
+        </div>
+        <br>
         <?= $this->formRow($form->get('submit')) ?>
         <br>
         <?= $this->form()->closeTag() ?>
