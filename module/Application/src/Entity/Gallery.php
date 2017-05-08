@@ -36,7 +36,6 @@ class Gallery
      * @Annotation\Validator({"name":"Zend\Validator\File\Extension", "options":{
      *     "extension":{"png", "jpg", "jpeg", "gif"}
      * }})
-     * @Annotation\Validator({"name":"Zend\Validator\File\IsImage"})
      * @Annotation\Validator({"name":"Zend\Validator\File\Size", "options":{"max":"20000000"}})
      * @Annotation\Input("Zend\InputFilter\FileInput")
      * @Annotation\Filter({
