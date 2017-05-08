@@ -227,6 +227,18 @@ $(document).ready(function(){
         });
     }
 
+/////////   In order for the pictures in the gallery to become in a row exactly 4   /////
+
+    var userImageCount = $('.user-image-box-out').length;
+
+    for (var i = 1; i <= userImageCount; i++) {
+        console.log(i);
+        if (i % 4 == 0) {
+            if (i == 0) { continue; }
+            $('.user-image-box-out').eq(i - 1).after('<div class="clearfix"></div>');
+        }
+    }
+
 /////////   END   ///////////////////////////////////////////////////////////////////////
 
 });

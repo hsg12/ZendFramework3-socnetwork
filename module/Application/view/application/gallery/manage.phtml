@@ -46,7 +46,7 @@ if ($this->form) {
 <div class="row">
     <?php if ($this->images) : ?>
         <?php foreach ($this->images as $image) : ?>
-            <div class="col-sm-3">
+            <div class="col-sm-3 user-image-box-out">
                 <div class="panel panel-default">
                     <div class="panel-body user-image-box">
                         <img src="<?= $this->escapeHtml($image->getImage()) ?>" class="img-responsive" alt="upload image">

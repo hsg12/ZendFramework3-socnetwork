@@ -48,7 +48,7 @@ $this->headTitle($headTitle);
 <?php else : ?>
     <br>
     <?php foreach ($this->images as $image) : ?>
-        <div class="col-sm-3">
+        <div class="col-sm-3 user-image-box-out">
             <div class="panel panel-default">
                 <div class="panel-body user-image-box">
                     <a href="<?= $this->escapeHtml($image->getImage()) ?>" data-lightbox="image-group">
