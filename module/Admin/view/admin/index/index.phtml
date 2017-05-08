@@ -3,7 +3,7 @@ $headTitle = 'Admin area';
 $this->headTitle($headTitle);
 ?>
 <br>
-<h4><?= $headTitle ?></h4>
+<?= $this->partial('partial/breadcrumbTemplate', ['headTitle' => $headTitle]) ?>
 <br>
 <p>You have the following capabilities:</p>
 <ul class="list-unstyled">

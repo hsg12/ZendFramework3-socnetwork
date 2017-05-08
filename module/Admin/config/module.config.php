@@ -72,22 +72,28 @@ return [
     ],
     'navigation' => [
         'default' => [
-            'admin' => [
-                'label' => 'Admin area',
-                'route' => 'admin',
+            'home' => [
+                'label' => 'Home',
+                'route' => 'home',
                 'pages' => [
-                    'status' => [
-                        'label' => 'Statuses',
-                        'route' => 'admin/statuses',
-                    ],
-                    'user' => [
-                        'label' => 'Users',
-                        'route' => 'admin/users',
+                    'admin' => [
+                        'label' => 'Admin area',
+                        'route' => 'admin',
                         'pages' => [
-                            'edit' => [
-                                'label' => 'Edit',
+                            'status' => [
+                                'label' => 'Statuses',
+                                'route' => 'admin/statuses',
+                            ],
+                            'user' => [
+                                'label' => 'Users',
                                 'route' => 'admin/users',
-                                'action' => 'edit',
+                                'pages' => [
+                                    'edit' => [
+                                        'label' => 'Edit',
+                                        'route' => 'admin/users',
+                                        'action' => 'edit',
+                                    ],
+                                ],
                             ],
                         ],
                     ],
