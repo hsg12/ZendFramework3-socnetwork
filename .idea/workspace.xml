@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1a3d7dc5-3931-4544-99a3-c899c3d9bce0" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/img/gallery/%D0%BB%D1%8E%D0%B1%D0%BE%D0%B2%D1%8C-other.jpg" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/Application/src/Controller/ProfileController.php" afterPath="$PROJECT_DIR$/module/Application/src/Controller/ProfileController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/Authentication/src/Filter/UpdateFilter.php" afterPath="$PROJECT_DIR$/module/Authentication/src/Filter/UpdateFilter.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -26,7 +25,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ProfileController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ProfileController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/module/Application/src/Controller/ProfileController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-181">
@@ -34,6 +33,30 @@
               <folding>
                 <element signature="e#42#78#0#PHP" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="3d-gray-cat-1024.jpg" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public_html/img/gallery/3d-gray-cat-1024.jpg">
+          <provider selected="true" editor-type-id="images">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="005.jpg" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public_html/img/gallery/005.jpg">
+          <provider selected="true" editor-type-id="images">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Module.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/module/Authentication/src/Module.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -1187,12 +1210,12 @@
       <workItem from="1494235297261" duration="8179000" />
       <workItem from="1494255039300" duration="934000" />
       <workItem from="1494261433347" duration="1481000" />
-      <workItem from="1494328062305" duration="5786000" />
+      <workItem from="1494328062305" duration="6133000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="243923000" />
+    <option name="totallyTimeSpent" value="244270000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="886" extended-state="6" />
@@ -1230,13 +1253,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public_html/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="176" column="17" lean-forward="false" selection-start-line="176" selection-start-column="17" selection-end-line="176" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/module/Application/view/application/gallery/show.phtml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1100">
@@ -1378,21 +1394,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public_html/img/gallery/socials.png" />
-    <entry file="file://$PROJECT_DIR$/public_html/img/gallery/%D0%BB%D1%8E%D0%B1%D0%BE%D0%B2%D1%8C-other.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/img/gallery/3d-gray-cat-1024.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/img/gallery/005.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public_html/img/gallery/057.jpg">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -1498,6 +1499,29 @@
           <folding>
             <element signature="e#42#78#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/img/gallery/%D0%BB%D1%8E%D0%B1%D0%BE%D0%B2%D1%8C-other.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/img/gallery/3d-gray-cat-1024.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/img/gallery/005.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/module/Authentication/src/Module.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
