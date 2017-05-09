@@ -11,6 +11,8 @@ use Zend\View\Model\ViewModel;
 use DoctrineModule\Stdlib\Hydrator\DoctrineObject;
 use Authentication\Form\UpdateForm;
 
+use Zend\Form\FormInterface;
+
 class ProfileController extends AbstractActionController
 {
     private $entityManager;
@@ -78,6 +80,7 @@ class ProfileController extends AbstractActionController
         }
 
         $form = $this->updateForm;
+        $form->setValidationGroup(['firstName', 'lastName', 'location', 'file', 'password']);
 
         $form->setHydrator(new DoctrineObject($this->entityManager));
         $form->bind($user);
@@ -85,36 +88,13 @@ class ProfileController extends AbstractActionController
         $request = $this->getRequest();
         if ($request->isPost()) {
 
-            $data = $request->getPost();
+            $data = array_merge_recursive(
+                $request->getPost()->toArray(),
+                $request->getFiles()->toArray()
+            );
 
             $files = $request->getFiles()->toArray();
             if ($files) { $fileName = $files['file']['name']; }
-
-            /* In order to have the choice, to change or not to change password and image  */
-            $postArray = $request->getPost()->toArray();
-
-            if (strlen($postArray['password']) > 0) {
-                if ($fileName) {
-                    $form->setValidationGroup(['firstName', 'lastName', 'location', 'file', 'password']);
-                    $data = array_merge_recursive(
-                        $request->getPost()->toArray(),
-                        $request->getFiles()->toArray()
-                    );
-                } else {
-                    $form->setValidationGroup(['firstName', 'lastName', 'location', 'password']);
-                }
-            } else {
-                if ($fileName) {
-                    $form->setValidationGroup(['firstName', 'lastName', 'location', 'file']);
-                    $data = array_merge_recursive(
-                        $request->getPost()->toArray(),
-                        $request->getFiles()->toArray()
-                    );
-                } else {
-                    $form->setValidationGroup(['firstName', 'lastName', 'location']);
-                }
-            }
-            /* End block */
 
             $form->setData($data);
 
@@ -126,6 +106,7 @@ class ProfileController extends AbstractActionController
                 }
 
                 /* In order, to not work, when an empty password  */
+                $postArray = $request->getPost()->toArray();
                 if (strlen($postArray['password']) >= 2) {
                     $this->prepareData($user);
                 }

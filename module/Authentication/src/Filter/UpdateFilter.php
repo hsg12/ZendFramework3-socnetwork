@@ -50,6 +50,7 @@ class UpdateFilter extends InputFilter
         $this->add([
             'name' => 'password',
             'required' => false,
+            'allowEmpty' => true,
             'filters' => [
                 ['name' => 'stripTags'],
                 ['name' => 'stringTrim'],
@@ -107,6 +108,7 @@ class UpdateFilter extends InputFilter
             'type'     => FileInput::class,
             'name'     => 'file',
             'required' => false,
+            'allowEmpty' => true,
             'validators' => [
                 ['name'    => 'FileUploadFile'],
                 ['name'    => 'FileIsImage'],
