@@ -54,15 +54,13 @@ class RegisterController extends AbstractActionController
         if ($request->isPost()) {
             $form->setData($request->getPost());
 
-            if ($form->isValid()) {
-                $repository = $this->entityManager->getRepository(User::class);
+            $repository = $this->entityManager->getRepository(User::class);
+            if ($this->validationService->isObjectExists($repository, $form->get('username')->getValue(), ['username'])) {
+                $nameExists = 'User with username "' . $form->get('username')->getValue() . '" exists already';
+                $form->get('username')->setMessages(['nameExists' => $nameExists]);
+            }
 
-                if ($this->validationService->isObjectExists($repository, $user->getUsername(), ['username'])) {
-                    $nameExists = 'User with username "' . $user->getUsername() . '" exists already';
-                    $form->get('username')->setMessages(['nameExists' => $nameExists]);
-                    return ['form'  => $form]; die;
-                }
-
+            if ($form->isValid() && empty($form->getMessages())) {
                 $cloneUser = clone $user; // to have not hashed password
                 $this->prepareData($user);
 

@@ -4,28 +4,28 @@ namespace Application\Controller;
 
 use Application\Entity\Relationship;
 use Application\Entity\User;
+use Application\Entity\Gallery;
 use Zend\Mvc\Controller\AbstractActionController;
-use Zend\Mvc\MvcEvent;
 use Doctrine\ORM\EntityManagerInterface;
 use Zend\View\Model\ViewModel;
 use DoctrineModule\Stdlib\Hydrator\DoctrineObject;
 use Authentication\Form\UpdateForm;
-
-use Zend\Form\FormInterface;
 
 class ProfileController extends AbstractActionController
 {
     private $entityManager;
     private $updateForm;
     private $repository;
+    private $galleryRepository;
 
     public function __construct(
         EntityManagerInterface $entityManager,
         UpdateForm $updateForm
     ) {
-        $this->entityManager = $entityManager;
-        $this->updateForm    = $updateForm;
-        $this->repository    = $this->entityManager->getRepository(User::class);
+        $this->entityManager     = $entityManager;
+        $this->updateForm        = $updateForm;
+        $this->repository        = $this->entityManager->getRepository(User::class);
+        $this->galleryRepository = $this->entityManager->getRepository(Gallery::class);
     }
 
     public function indexAction()
@@ -75,7 +75,6 @@ class ProfileController extends AbstractActionController
         $username = $this->clearString($username);
         $user = $this->repository->findOneBy(['username' => $username]);
 
-
         if (! $user) {
             return $this->notFoundAction();
         }
@@ -108,16 +107,39 @@ class ProfileController extends AbstractActionController
             if ($form->isValid()) {
                 $user = $form->getData();
 
-                /* Block for replacing old image */
+                /* Actions with image */
                 if ($fileName) {
                     $oldImage = $user->getImage();
                     if (is_file(getcwd() . '/public_html' . $oldImage)) {
                         unlink(getcwd() . '/public_html' . $oldImage);
                     }
 
-                    $user->setImage('/img/user/' . $fileName);
+                    /*
+                        Here very important consider order
+                        ( first use \Zend\Filter\File\Rename, then \Zend\Filter\File\RenameUpload )
+                        In order to give $username to filename use this two classes here instead of
+                        Authentication\Filter\UpdateFilter where not exists $username
+                    */
+
+                    $extension = pathinfo($fileName, PATHINFO_EXTENSION);
+                    $newFileName = $username . '.' . $extension;
+
+                    $filter = new \Zend\Filter\File\Rename("./public_html/img/user/" . $newFileName);
+                    $filter->filter($files['file']);
+
+                    $filter = new \Zend\Filter\File\RenameUpload([
+                        'target'            => './public_html/img/user/',
+                        'useUploadName'     => true,
+                        'useUploadExtension'=> true,
+                        'overwrite'         => true,
+                        'randomize'         => false
+                    ]);
+
+                    $filter->filter($files['file']);
+
+                    $user->setImage('/img/user/' . $newFileName);
                 }
-                /* End block */
+                /* End actions */
 
                 /* In order, to not work, when an empty password  */
                 $postArray = $request->getPost()->toArray();
@@ -144,5 +166,41 @@ class ProfileController extends AbstractActionController
     {
         $user->setPasswordSalt(sha1(time() . 'userPasswordSalt'));
         $user->setPassword(sha1('passwordStaticSalt' . $user->getPassword() . $user->getPasswordSalt()));
+    }
+
+    public function deleteAction()
+    {
+        $username = $this->params()->fromRoute('username', '');
+        $username = $this->clearString($username);
+        $user = $this->repository->findOneBy(['username' => $username]);
+        if (! $user) {
+            return $this->notFoundAction();
+        }
+
+        /* Block for deletion user profile image on server */
+        $userImage = $user->getImage();
+        if ($userImage) {
+            if (is_file(getcwd() . '/public_html' . $userImage)) {
+                unlink(getcwd() . '/public_html' . $userImage);
+            }
+        }
+        /* End block */
+
+        /* Block for deletion gallery image on server */
+        $gallery = $this->galleryRepository->findBy(['user' => $user]);
+
+        array_walk($gallery, function ($imgObj) {
+            if ($imgObj) {
+                if (is_file(getcwd() . '/public_html' . $imgObj->getImage())) {
+                    unlink(getcwd() . '/public_html' . $imgObj->getImage());
+                }
+            }
+        });
+        /* End block */
+
+        $this->entityManager->remove($user);
+        $this->entityManager->flush();
+
+        return $this->redirect()->toRoute('home');
     }
 }

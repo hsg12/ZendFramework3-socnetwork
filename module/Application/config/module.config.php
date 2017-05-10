@@ -54,8 +54,6 @@ return [
                     ],
                 ],
             ],
-
-
             'timeline' => [
                 'type'    => Segment::class,
                 'options' => [

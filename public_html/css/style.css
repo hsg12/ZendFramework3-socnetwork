@@ -198,3 +198,7 @@ li.already-liked {
 .delete-form button:hover {
     color: #134fb8;
 }
+
+.delete-profile-button {
+    margin-top: 3px;
+}

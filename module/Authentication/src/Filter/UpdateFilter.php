@@ -11,7 +11,7 @@ class UpdateFilter extends InputFilter
     {
         $this->add([
             'name'       => 'firstName',
-            'required'   => true,
+            'required'   => false,
             'filters'    => [
                 ['name' => 'stripTags'],
                 ['name' => 'stringTrim'],
@@ -30,7 +30,7 @@ class UpdateFilter extends InputFilter
 
         $this->add([
             'name'       => 'lastName',
-            'required'   => true,
+            'required'   => false,
             'filters'    => [
                 ['name' => 'stripTags'],
                 ['name' => 'stringTrim'],
@@ -69,7 +69,7 @@ class UpdateFilter extends InputFilter
 
         $this->add([
             'name'       => 'location',
-            'required'   => true,
+            'required'   => false,
             'filters'    => [
                 ['name' => 'stripTags'],
                 ['name' => 'stringTrim'],
@@ -119,18 +119,19 @@ class UpdateFilter extends InputFilter
                     ],
                 ],
             ],
-            'filters'  => [
+            /* Use this filter in controller (see Profile controller edit action) */
+            /*'filters'  => [
                 [
                     'name' => 'FileRenameUpload',
                     'options' => [
-                        'target'            =>'./public_html/img/user/',
-                        'useUploadName'     =>true,
-                        'useUploadExtension'=>true,
-                        'overwrite'         =>true,
-                        'randomize'         =>false
+                        'target'            => './public_html/img/user/',
+                        'useUploadName'     => true,
+                        'useUploadExtension'=> true,
+                        'overwrite'         => true,
+                        'randomize'         => false
                     ]
                 ]
-            ],
+            ],*/
         ]);
     }
 }

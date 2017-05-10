@@ -6,8 +6,39 @@ $form = $this->form;
 $form->setAttribute('action', $this->url('profile', ['action' => 'edit', 'username' => $this->user->getUsername()]));
 $form->prepare();
 ?>
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h5 class="modal-title" id="myModalLabel">Do You really want to delete Your profile?</h5>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">No</button>
+                <button type="button" class="btn btn-danger" id="delete-user">Yes</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Hidden form for delete user -->
+<form action="<?= $this->url('profile', ['action' => 'delete', 'username' => $this->user->getUsername()]) ?>"
+      method="post"
+      class="delete-user-form"
+>
+    <button type="button">Yes</button>
+</form>
 <br>
-<h4><?= $headTitle ?></h4>
+<div class="row">
+    <div class="col-xs-6">
+        <h4><?= $headTitle ?></h4>
+    </div>
+    <div class="col-xs-6">
+        <button type="button" class="btn btn-danger pull-right delete-profile-button" data-toggle="modal" data-target="#myModal">
+            Delete profile
+        </button>
+    </div>
+</div>
 <br>
 <div class="row">
     <div class="col-sm-6">
@@ -47,12 +78,3 @@ $form->prepare();
     </div>
 </div>
 <br>
-<hr>
-<br>
-<div class="row">
-    <div class="col-sm-12">
-        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">
-            Delete profile
-        </button>
-    </div>
-</div>

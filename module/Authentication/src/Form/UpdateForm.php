@@ -27,7 +27,6 @@ class UpdateForm extends Form
         ]);
         $firstName->setAttributes([
             'class'    => 'form-control',
-            'required' => 'required',
             'id'       => 'firstName',
         ]);
         $firstName->setOptions([
@@ -43,7 +42,6 @@ class UpdateForm extends Form
         ]);
         $lastName->setAttributes([
             'class'    => 'form-control',
-            'required' => 'required',
             'id'       => 'lastName',
         ]);
         $lastName->setOptions([
@@ -74,7 +72,6 @@ class UpdateForm extends Form
         ]);
         $location->setAttributes([
             'class'    => 'form-control',
-            'required' => 'required',
             'id'       => 'location',
         ]);
         $location->setOptions([
