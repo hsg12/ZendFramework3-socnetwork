@@ -75,19 +75,18 @@ class ProfileController extends AbstractActionController
         $username = $this->clearString($username);
         $user = $this->repository->findOneBy(['username' => $username]);
 
+
         if (! $user) {
             return $this->notFoundAction();
         }
 
         $form = $this->updateForm;
-        $form->setValidationGroup(['firstName', 'lastName', 'location', 'file', 'password']);
 
         $form->setHydrator(new DoctrineObject($this->entityManager));
         $form->bind($user);
 
         $request = $this->getRequest();
         if ($request->isPost()) {
-
             $data = array_merge_recursive(
                 $request->getPost()->toArray(),
                 $request->getFiles()->toArray()
@@ -98,12 +97,27 @@ class ProfileController extends AbstractActionController
 
             $form->setData($data);
 
+            // Remove 'role' from validationGroup (We do not need 'role' in this form)
+            $form->getInputFilter()->remove('role');
+
+            // Remove 'password' from validationGroup if we do not want to change password
+            if ($form->get("password")->getValue() == ""){
+                $form->getInputFilter()->remove('password');
+            }
+
             if ($form->isValid()) {
                 $user = $form->getData();
 
+                /* Block for replacing old image */
                 if ($fileName) {
+                    $oldImage = $user->getImage();
+                    if (is_file(getcwd() . '/public_html' . $oldImage)) {
+                        unlink(getcwd() . '/public_html' . $oldImage);
+                    }
+
                     $user->setImage('/img/user/' . $fileName);
                 }
+                /* End block */
 
                 /* In order, to not work, when an empty password  */
                 $postArray = $request->getPost()->toArray();

@@ -93,31 +93,6 @@ class GalleryController extends AbstractActionController
         ]);
     }
 
-    public function deleteAction()
-    {
-        $id = $this->getEvent()->getRouteMatch()->getParam('id', 0);
-        $image = $this->galleryRepository->find($id);
-        $request = $this->getRequest();
-
-        if (! $image || ! $request->isPost()) {
-            return $this->notFoundAction(); exit;
-        }
-
-        $username = $this->getEvent()->getRouteMatch()->getParam('username', '');
-        $user = $this->userRepository->findOneBy(['username' => $username]);
-
-        if ($user) {
-            if ($this->identity()->getId() !== $user->getId()) {
-                return $this->notFoundAction(); exit;
-            }
-        }
-
-        $this->entityManager->remove($image);
-        $this->entityManager->flush();
-
-        return $this->redirect()->toRoute('gallery', ['action' => 'manage', 'username' => $username]);
-    }
-
     public function checkFriendship($user)
     {
         if ($user) {
@@ -133,8 +108,36 @@ class GalleryController extends AbstractActionController
         return true;
     }
 
+    public function deleteAction()
+    {
+        $id = $this->getEvent()->getRouteMatch()->getParam('id', 0);
+        $imageObj = $this->galleryRepository->find($id);
+        $request = $this->getRequest();
 
+        if (! $imageObj || ! $request->isPost()) {
+            return $this->notFoundAction(); exit;
+        }
 
+        $username = $this->getEvent()->getRouteMatch()->getParam('username', '');
+        $user = $this->userRepository->findOneBy(['username' => $username]);
 
+        if ($user) {
+            if ($this->identity()->getId() !== $user->getId()) {
+                return $this->notFoundAction(); exit;
+            }
+        }
 
+        /* Block for deletion gallery image on server */
+        if ($imageObj) {
+            if (is_file(getcwd() . '/public_html' . $imageObj->getImage())) {
+                unlink(getcwd() . '/public_html' . $imageObj->getImage());
+            }
+        }
+        /* End block */
+
+        $this->entityManager->remove($imageObj);
+        $this->entityManager->flush();
+
+        return $this->redirect()->toRoute('gallery', ['action' => 'manage', 'username' => $username]);
+    }
 }

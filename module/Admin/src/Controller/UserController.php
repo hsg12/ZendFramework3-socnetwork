@@ -7,22 +7,25 @@ use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 use Doctrine\ORM\EntityManagerInterface;
 use Application\Entity\User;
+use Application\Entity\Gallery;
 use Authentication\Form\UpdateForm;
 use DoctrineModule\Stdlib\Hydrator\DoctrineObject;
 
 class UserController extends AbstractActionController
 {
     private $entityManager;
-    private $repository;
     private $updateForm;
+    private $repository;
+    private $galleryRepository;
 
     public function __construct(
         EntityManagerInterface $entityManager,
         UpdateForm $updateForm
     ) {
         $this->entityManager = $entityManager;
-        $this->repository = $this->entityManager->getRepository(User::class);
         $this->updateForm = $updateForm;
+        $this->repository = $this->entityManager->getRepository(User::class);
+        $this->galleryRepository = $this->entityManager->getRepository(Gallery::class);
     }
 
     public function indexAction()
@@ -115,6 +118,27 @@ class UserController extends AbstractActionController
         if (! $id || ! $user) {
             return $this->notFoundAction();
         }
+
+        /* Block for deletion user profile image on server */
+        $userImage = $user->getImage();
+        if ($userImage) {
+            if (is_file(getcwd() . '/public_html' . $userImage)) {
+                unlink(getcwd() . '/public_html' . $userImage);
+            }
+        }
+        /* End block */
+
+        /* Block for deletion gallery image on server */
+        $gallery = $this->galleryRepository->findBy(['user' => $user]);
+
+        array_walk($gallery, function ($imgObj) {
+            if ($imgObj) {
+                if (is_file(getcwd() . '/public_html' . $imgObj->getImage())) {
+                    unlink(getcwd() . '/public_html' . $imgObj->getImage());
+                }
+            }
+        });
+        /* End block */
 
         $this->entityManager->remove($user);
         $this->entityManager->flush();

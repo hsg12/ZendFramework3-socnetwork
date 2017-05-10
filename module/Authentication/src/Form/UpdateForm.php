@@ -52,27 +52,25 @@ class UpdateForm extends Form
         ]);
         $this->add($lastName);
 
-        $this->add([
-            'name' => 'password',
-            'type' => 'password',
-            'attributes' => [
-                'class'    => 'form-control',
-                'id'       => 'password',
-            ],
-            'options' => [
-                'label' => 'Change Password:',
-                'label_attributes' => [
-                    'class' => 'control-label',
-                ],
-                'min' => 2,
-                'max' => 100,
-            ],
+        $password = new Element\Password('password');
+        $password->setLabel('Change Password:');
+        $password->setLabelAttributes([
+            'class' => 'control-label',
         ]);
+        $password->setAttributes([
+            'class'    => 'form-control',
+            'id'       => 'password',
+        ]);
+        $password->setOptions([
+            'min' => 2,
+            'max' => 50,
+        ]);
+        $this->add($password);
 
         $location = new Element\Text('location');
         $location->setLabel('Location:');
         $location->setLabelAttributes([
-            'class' => 'label-control',
+            'class' => 'control-label',
         ]);
         $location->setAttributes([
             'class'    => 'form-control',

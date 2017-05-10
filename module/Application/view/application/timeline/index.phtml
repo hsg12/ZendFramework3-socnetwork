@@ -19,8 +19,8 @@ $this->headTitle($headTitle);
                        class="pull-left"
                     >
                         <img class="media-object"
-                             src="<?= $this->identity()->getImage() ?>"
-                             alt="<?= $this->getNameOrUsername($this, $this->identity()) ?>"
+                             src="<?= $this->getImage($this, $this->identity()->getImage()) ?>"
+                             alt="profile-image"
                              width="40"
                              height="40"
                         >
@@ -61,7 +61,7 @@ $this->headTitle($headTitle);
                                    class="pull-left"
                                 >
                                     <img class="media-object"
-                                         src="<?= $this->escapeHtml($replay->getUser()->getImage()) ?>"
+                                         src="<?= $this->getImage($this, $replay->getUser()->getImage()) ?>"
                                          alt="<?= $this->getNameOrUsername($this, $replay->getUser()) ?>"
                                          width="40"
                                          height="40"

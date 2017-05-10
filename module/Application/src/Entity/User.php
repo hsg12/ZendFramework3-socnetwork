@@ -93,7 +93,7 @@ class User
      *
      * @ORM\Column(name="image", type="string", length=100, precision=0, scale=0, nullable=true, unique=false)
      */
-    private $image = '/img/user/no-image.png';
+    private $image;
 
     /**
      * @Annotation\Type("Zend\Form\Element\Submit")

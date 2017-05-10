@@ -39,8 +39,8 @@ $content->setAttribute('placeholder', "What's up " . $this->getNameOrUsername($t
                        class="pull-left"
                     >
                         <img class="media-object"
-                             src="<?= $status->getUser()->getImage() ?>"
-                             alt="<?= $this->getNameOrUsername($this, $this->identity()) ?>"
+                             src="<?= $this->getImage($this, $status->getUser()->getImage()) ?>"
+                             alt="profile-image"
                              width="40"
                              height="40"
                         >
@@ -81,8 +81,8 @@ $content->setAttribute('placeholder', "What's up " . $this->getNameOrUsername($t
                                    class="pull-left"
                                 >
                                     <img class="media-object"
-                                         src="<?= $this->escapeHtml($replay->getUser()->getImage()) ?>"
-                                         alt="<?= $this->getNameOrUsername($this, $replay->getUser()) ?>"
+                                         src="<?= $this->getImage($this, $replay->getUser()->getImage()) ?>"
+                                         alt="profile-image"
                                          width="40"
                                          height="40"
                                     >

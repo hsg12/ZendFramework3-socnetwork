@@ -27,9 +27,9 @@ class Module
             'invokables' => [
                 'getYear'           => View\Helper\GetYear::class,
                 'getNameOrUsername' => View\Helper\GetNameOrUsername::class,
-                'getAvatarUrl'      => View\Helper\GetAvatarUrl::class,
                 'getHumanTiming'    => View\Helper\GetHumanTiming::class,
                 'replaceBadWords'   => View\Helper\ReplaceBadWords::class,
+                'getImage'          => View\Helper\GetImage::class,
             ],
             'factories' => [
                 'isFriends' => function ($container) {
