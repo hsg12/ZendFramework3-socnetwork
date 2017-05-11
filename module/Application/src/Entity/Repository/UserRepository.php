@@ -22,18 +22,37 @@ class UserRepository extends EntityRepository
         return $authResult;
     }
 
-    public function search($value)
+    public function searchUserPage($value)
     {
         $value = '%' . $value . '%';
 
         $sql  = 'SELECT u ';
         $sql .= 'FROM ' . User::class . ' AS u ';
-        $sql .= 'WHERE CONCAT(u.firstName, \' \', u.lastName) ';
+        $sql .= 'WHERE (CONCAT(u.firstName, \' \', u.lastName) ';
         $sql .= 'LIKE :value ';
         $sql .= 'OR u.username ';
-        $sql .= 'LIKE :value';
+        $sql .= 'LIKE :value) ';
+        $sql .= 'AND u.active = 1';
 
-        $query = $this->getEntityManager()->createQuery($sql)->setParameter('value', $value);
+        $query = $this->getEntityManager()->createQuery($sql)->setParameters(['value' => $value]);
+        $result = $query->getResult();
+
+        return $result ? $result : false;
+    }
+
+    public function searchAdminPage($value)
+    {
+        $value = '%' . $value . '%';
+
+        $sql  = 'SELECT u ';
+        $sql .= 'FROM ' . User::class . ' AS u ';
+        $sql .= 'WHERE (CONCAT(u.firstName, \' \', u.lastName) ';
+        $sql .= 'LIKE :value ';
+        $sql .= 'OR u.username ';
+        $sql .= 'LIKE :value) ';
+        $sql .= 'AND u.role = :user';
+
+        $query = $this->getEntityManager()->createQuery($sql)->setParameters(['value' => $value, 'user' => 'user']);
         $result = $query->getResult();
 
         return $result ? $result : false;

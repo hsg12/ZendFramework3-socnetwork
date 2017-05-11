@@ -13,7 +13,6 @@ $currentUsername = $this->identity()->getUsername();
         <?php else : ?>
             <br>
             <?php foreach ($this->users as $user) : ?>
-                <?php if ($user->getUsername() == $currentUsername) continue ?>
                 <?= $this->partial('partial/userProfile', ['user' => $user]) ?>
             <?php endforeach; ?>
         <?php endif; ?>

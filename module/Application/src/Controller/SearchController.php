@@ -44,7 +44,7 @@ class SearchController extends AbstractActionController
         $search = $this->clearString($search);
 
         if (! empty($search)) {
-            $users = $this->repository->search($search);
+            $users = $this->repository->searchUserPage($search);
         }
 
         return new ViewModel([

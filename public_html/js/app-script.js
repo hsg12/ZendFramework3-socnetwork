@@ -248,22 +248,24 @@ $(document).ready(function(){
         }, 3000);
     };
 
-    $('a.user-profile-img').on('click', function(){
+    $('a.user-profile-img').on('click', function(event){
         var active = $(this).attr('data-active');
 
         if (active === '1') {
             return true;
         } else {
-            signInMessage($(this).next('.media-body').find('.not-active').text('Profile deleted'));
+            signInMessage($(this).next('.media-body').find('.not-active').eq(0).text('Profile deleted'));
             return false;
         }
     });
 
     $('a.user-profile-name').on('click', function(){
         var active = $(this).attr('data-active');
+
         if (active === '1') {
             return true;
         } else {
+            $(this).hover().css('textDecoration', 'none');
             signInMessage($(this).next('.not-active').text('Profile deleted'));
             return false;
         }

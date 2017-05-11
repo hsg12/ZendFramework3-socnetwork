@@ -85,7 +85,7 @@ class UserController extends AbstractActionController
 
             if (! empty($search)) {
                 $search = $this->clearString($search);
-                $users = $this->repository->search($search);
+                $users = $this->repository->searchAdminPage($search);
 
                 $result = [];
                 $results = [];

@@ -50,17 +50,24 @@ class LoginController extends AbstractActionController
             if ($form->isValid()) {
                 $user = $form->getData();
 
-                $authResult = $this->entityManager->getRepository(User::class)->login($user, $this->ormAuthService);
-
-                if ($authResult->getCode() != \Zend\Authentication\Result::SUCCESS) {
-                    $incorrect = 'Incorrect username or password';
+                /* if ($result === false) it means user profile deleted */
+                $result = $this->isUserActive($user->getUsername());
+                //var_dump($result); exit;
+                if ($result === false) {
+                    $incorrect = 'Profile deleted';
                 } else {
-                    if ($request->getPost('rememberMe') == 1) {
-                        $time = 3600 * 24 * 360;
-                        $this->authStorage->setRememberMe(1, $time);
-                        $this->ormAuthService->setStorage($this->authStorage);
+                    $authResult = $this->entityManager->getRepository(User::class)->login($user, $this->ormAuthService);
+
+                    if ($authResult->getCode() != \Zend\Authentication\Result::SUCCESS) {
+                        $incorrect = 'Incorrect username or password';
+                    } else {
+                        if ($request->getPost('rememberMe') == 1) {
+                            $time = 3600 * 24 * 360;
+                            $this->authStorage->setRememberMe(1, $time);
+                            $this->ormAuthService->setStorage($this->authStorage);
+                        }
+                        return $this->redirect()->toRoute('home');
                     }
-                    return $this->redirect()->toRoute('home');
                 }
             }
         }

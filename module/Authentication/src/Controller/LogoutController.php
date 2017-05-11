@@ -21,11 +21,6 @@ class LogoutController extends AbstractActionController
 
     public function indexAction()
     {
-        if (! $this->request->isPost()) {
-            return $this->redirect()->toRoute('home');
-            die;
-        }
-
         $this->authStorage->forgetMe();
         $this->ormAuthService->clearIdentity();
 

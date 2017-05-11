@@ -40,7 +40,9 @@ $this->headTitle($headTitle);
         <?php else : ?>
             <br>
             <?php foreach ($this->friends as $friend) : ?>
-                <?= $this->partial('partial/userProfile', ['user' => $friend]) ?>
+                <?php if ($friend->getActive() == '1') : ?>
+                    <?= $this->partial('partial/userProfile', ['user' => $friend]) ?>
+                <?php endif; ?>
             <?php endforeach; ?>
         <?php endif; ?>
     </div>

@@ -1,6 +1,6 @@
 <div class="media">
     <a href="<?= $this->url('profile', ['username' => $this->user->getUsername()]) ?>"
-       class="pull-left media-user-profile"
+       class="pull-left user-profile-img"
        data-active="<?= (int)$this->user->getActive() ?>"
     >
         <img class="media-object",
@@ -12,9 +12,13 @@
     </a>
     <div class="media-body">
         <h5 class="media-heading">
-            <a href="<?= $this->url('profile', ['username' => $this->user->getUsername()]) ?>">
+            <a href="<?= $this->url('profile', ['username' => $this->user->getUsername()]) ?>"
+               class="user-profile-name"
+               data-active="<?= (int)$this->user->getActive() ?>"
+            >
                 <?= $this->getNameOrUsername($this, $this->user) ?>
             </a>
+            <div class="not-active"></div>
         </h5>
         <div>
             <?= $this->user->getLocation() ? $this->escapeHtml($this->user->getLocation()) : false; ?>

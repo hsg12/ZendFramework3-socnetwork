@@ -34,7 +34,7 @@ class ProfileController extends AbstractActionController
         $username = $this->clearString($username);
         $user = $this->repository->findOneBy(['username' => $username]);
 
-        if (! $user) {
+        if (! $user || ! $this->isUserActive($username)) {
             return $this->notFoundAction();
         }
 

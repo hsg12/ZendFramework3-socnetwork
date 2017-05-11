@@ -13,6 +13,8 @@ use Zend\Paginator\Paginator;
 use Doctrine\ORM\Tools\Pagination\Paginator as ORMPaginator;
 use DoctrineORMModule\Paginator\Adapter\DoctrinePaginator;
 
+use Authentication\Controller\LogoutController;
+
 class IndexController extends AbstractActionController
 {
     private $entityManager;
@@ -36,6 +38,10 @@ class IndexController extends AbstractActionController
         if (! $this->identity()) {
             $view->setTemplate('application/index/index');
             return $view;
+        }
+
+        if ($this->isUserActive($this->identity()->getUsername()) === false) {
+            return $this->forward()->dispatch(LogoutController::class, ['action' => 'index']);
         }
 
         $status = new Status();

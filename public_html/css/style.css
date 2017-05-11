@@ -205,4 +205,6 @@ li.already-liked {
 
 .not-active {
     color: #d00;
+    font-size: 15px;
+    font-weight: normal;
 }

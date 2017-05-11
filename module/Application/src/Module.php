@@ -113,6 +113,13 @@ class Module
                 'getAnnotationForm' => Controller\Plugin\GetAnnotationForm::class,
                 'getUserFriends'    => Controller\Plugin\GetUserFriends::class,
             ],
+            'factories' => [
+                'isUserActive' => function ($container) {
+                    return new Controller\Plugin\IsUserActive(
+                        $container->get(EntityManager::class)
+                    );
+                },
+            ],
         ];
     }
 
