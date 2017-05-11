@@ -96,6 +96,13 @@ class User
     private $image;
 
     /**
+     * @var boolean
+     *
+     * @ORM\Column(name="active", type="boolean", precision=0, scale=0, nullable=false, unique=false)
+     */
+    private $active = "1";
+
+    /**
      * @Annotation\Type("Zend\Form\Element\Submit")
      * @Annotation\Attributes({"class":"btn btn-default", "value":"Submit"})
      * @Annotation\AllowEmpty({"allowempty":"true"})
@@ -357,6 +364,30 @@ class User
     public function getImage()
     {
         return $this->image;
+    }
+
+    /**
+     * Set active
+     *
+     * @param boolean $active
+     *
+     * @return User
+     */
+    public function setActive($active)
+    {
+        $this->active = $active;
+
+        return $this;
+    }
+
+    /**
+     * Get active
+     *
+     * @return boolean
+     */
+    public function getActive()
+    {
+        return $this->active;
     }
 }
 

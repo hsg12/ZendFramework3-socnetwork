@@ -239,6 +239,36 @@ $(document).ready(function(){
         }
     }
 
+/////////   Show 'Profile deleted' message   ////////////////////////////////////////////
+
+    var signInMessage = function (obj) {
+        obj.fadeIn(300);
+        setTimeout(function() {
+            obj.fadeOut(300);
+        }, 3000);
+    };
+
+    $('a.user-profile-img').on('click', function(){
+        var active = $(this).attr('data-active');
+
+        if (active === '1') {
+            return true;
+        } else {
+            signInMessage($(this).next('.media-body').find('.not-active').text('Profile deleted'));
+            return false;
+        }
+    });
+
+    $('a.user-profile-name').on('click', function(){
+        var active = $(this).attr('data-active');
+        if (active === '1') {
+            return true;
+        } else {
+            signInMessage($(this).next('.not-active').text('Profile deleted'));
+            return false;
+        }
+    });
+
 /////////   END   ///////////////////////////////////////////////////////////////////////
 
 });

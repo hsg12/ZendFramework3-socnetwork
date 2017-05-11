@@ -36,7 +36,8 @@ $content->setAttribute('placeholder', "What's up " . $this->getNameOrUsername($t
             <?php foreach ($this->statuses as $status) : ?>
                 <div class="media">
                     <a href="<?= $this->url('profile', ['username' => $status->getUser()->getUsername()]) ?>"
-                       class="pull-left"
+                       class="pull-left user-profile-img"
+                       data-active="<?= (int)$status->getUser()->getActive() ?>"
                     >
                         <img class="media-object"
                              src="<?= $this->getImage($this, $status->getUser()->getImage()) ?>"
@@ -47,9 +48,13 @@ $content->setAttribute('placeholder', "What's up " . $this->getNameOrUsername($t
                     </a>
                     <div class="media-body">
                         <h5 class="media-heading">
-                            <a href="<?= $this->url('profile', ['username' => $status->getUser()->getUsername()]) ?>">
+                            <a href="<?= $this->url('profile', ['username' => $status->getUser()->getUsername()]) ?>"
+                               class="user-profile-name"
+                               data-active="<?= (int)$status->getUser()->getActive() ?>"
+                            >
                                 <?= $this->escapeHtml($this->getNameOrUsername($this, $status->getUser())) ?>
                             </a>
+                            <div class="not-active"></div>
                         </h5>
                         <p><?= nl2br($this->replaceBadWords($this->escapeHtml($status->getContent()))) ?></p>
                         <ul class="list-inline data-like-block">
@@ -78,7 +83,8 @@ $content->setAttribute('placeholder', "What's up " . $this->getNameOrUsername($t
                             <?php foreach ($replays as $replay) : ?>
                             <div class="media">
                                 <a href="<?= $this->url('profile', ['username' => $replay->getUser()->getUsername()]) ?>"
-                                   class="pull-left"
+                                   class="pull-left user-profile-img"
+                                   data-active="<?= (int)$replay->getUser()->getActive() ?>"
                                 >
                                     <img class="media-object"
                                          src="<?= $this->getImage($this, $replay->getUser()->getImage()) ?>"
@@ -89,9 +95,13 @@ $content->setAttribute('placeholder', "What's up " . $this->getNameOrUsername($t
                                 </a>
                                 <div class="media-body">
                                     <h5 class="media-heading">
-                                        <a href="<?= $this->url('profile', ['username' => $replay->getUser()->getUsername()]) ?>">
+                                        <a href="<?= $this->url('profile', ['username' => $replay->getUser()->getUsername()]) ?>"
+                                           class="user-profile-name"
+                                           data-active="<?= (int)$replay->getUser()->getActive() ?>"
+                                        >
                                             <?= $this->escapeHtml($this->getNameOrUsername($this, $replay->getUser())) ?>
                                         </a>
+                                        <div class="not-active"></div>
                                     </h5>
                                     <p><?= nl2br($this->replaceBadWords($this->escapeHtml($replay->getContent()))) ?></p>
                                     <ul class="list-inline data-like-block">

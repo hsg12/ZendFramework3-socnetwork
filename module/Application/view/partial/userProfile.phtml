@@ -1,5 +1,8 @@
 <div class="media">
-    <a href="<?= $this->url('profile', ['username' => $this->user->getUsername()]) ?>" class="pull-left">
+    <a href="<?= $this->url('profile', ['username' => $this->user->getUsername()]) ?>"
+       class="pull-left media-user-profile"
+       data-active="<?= (int)$this->user->getActive() ?>"
+    >
         <img class="media-object",
              src="<?= $this->getImage($this, $this->user->getImage()) ?>"
              alt="profile-image"

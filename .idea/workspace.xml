@@ -2,8 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1a3d7dc5-3931-4544-99a3-c899c3d9bce0" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/img/user/DSC_0069.JPG" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/DoctrineORMModule/Proxy/__CG__ApplicationEntityUser.php" afterPath="$PROJECT_DIR$/data/DoctrineORMModule/Proxy/__CG__ApplicationEntityUser.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/Application/src/Entity/User.php" afterPath="$PROJECT_DIR$/module/Application/src/Entity/User.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/Application/view/application/index/main.phtml" afterPath="$PROJECT_DIR$/module/Application/view/application/index/main.phtml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/Application/view/application/timeline/index.phtml" afterPath="$PROJECT_DIR$/module/Application/view/application/timeline/index.phtml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/Application/view/partial/userProfile.phtml" afterPath="$PROJECT_DIR$/module/Application/view/partial/userProfile.phtml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/css/style.css" afterPath="$PROJECT_DIR$/public_html/css/style.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/app-script.js" afterPath="$PROJECT_DIR$/public_html/js/app-script.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -15,48 +21,43 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="UpdateFilter.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/module/Authentication/src/Filter/UpdateFilter.php">
+      <file leaf-file-name="main.phtml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/module/Application/view/application/index/main.phtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2359">
-              <caret line="2" column="10" lean-forward="false" selection-start-line="2" selection-start-column="10" selection-end-line="2" selection-end-column="32" />
-              <folding>
-                <element signature="e#41#74#0#PHP" expanded="true" />
-              </folding>
+            <state relative-caret-position="400">
+              <caret line="103" column="70" lean-forward="false" selection-start-line="103" selection-start-column="70" selection-end-line="103" selection-end-column="70" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ProfileController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/module/Application/src/Controller/ProfileController.php">
+      <file leaf-file-name="app-script.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public_html/js/app-script.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2354">
-              <caret line="25" column="47" lean-forward="true" selection-start-line="25" selection-start-column="47" selection-end-line="25" selection-end-column="47" />
-              <folding>
-                <element signature="e#42#78#0#PHP" expanded="true" />
-              </folding>
+            <state relative-caret-position="268">
+              <caret line="241" column="89" lean-forward="false" selection-start-line="241" selection-start-column="89" selection-end-line="241" selection-end-column="89" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="i.jpg" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public_html/img/user/i.jpg">
-          <provider selected="true" editor-type-id="images">
-            <state />
+      <file leaf-file-name="index.phtml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/module/Application/view/application/timeline/index.phtml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="572">
+              <caret line="83" column="70" lean-forward="false" selection-start-line="83" selection-start-column="70" selection-end-line="83" selection-end-column="70" />
+              <folding />
+            </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Edgar.JPG" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public_html/img/user/Edgar.JPG">
-          <provider selected="true" editor-type-id="images">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="John.jpg" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/public_html/img/user/John.jpg">
-          <provider selected="true" editor-type-id="images">
-            <state />
+      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public_html/css/style.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="413">
+              <caret line="195" column="1" lean-forward="true" selection-start-line="195" selection-start-column="1" selection-end-line="195" selection-end-column="1" />
+              <folding />
+            </state>
           </provider>
         </entry>
       </file>
@@ -141,7 +142,6 @@
         <option value="$PROJECT_DIR$/public_html/.htaccess" />
         <option value="$PROJECT_DIR$/module/Application/view/application/gallery/show.phtml" />
         <option value="$PROJECT_DIR$/module/Application/view/application/gallery/manage.phtml" />
-        <option value="$PROJECT_DIR$/public_html/js/app-script.js" />
         <option value="$PROJECT_DIR$/module/Admin/view/partial/breadcrumbTemplate.phtml" />
         <option value="$PROJECT_DIR$/module/Admin/config/module.config.php" />
         <option value="$PROJECT_DIR$/module/Admin/view/admin/index/index.phtml" />
@@ -150,19 +150,20 @@
         <option value="$PROJECT_DIR$/config/application.config.php" />
         <option value="$PROJECT_DIR$/module/Application/src/Module.php" />
         <option value="$PROJECT_DIR$/module/Application/src/View/Helper/GetImage.php" />
-        <option value="$PROJECT_DIR$/module/Application/src/Entity/User.php" />
-        <option value="$PROJECT_DIR$/module/Application/view/application/index/main.phtml" />
-        <option value="$PROJECT_DIR$/module/Application/view/application/timeline/index.phtml" />
-        <option value="$PROJECT_DIR$/module/Application/view/partial/userProfile.phtml" />
         <option value="$PROJECT_DIR$/module/Application/src/Controller/GalleryController.php" />
         <option value="$PROJECT_DIR$/module/Admin/src/Controller/UserController.php" />
         <option value="$PROJECT_DIR$/module/Authentication/src/Form/UpdateForm.php" />
-        <option value="$PROJECT_DIR$/public_html/css/style.css" />
         <option value="$PROJECT_DIR$/module/Application/config/module.config.php" />
         <option value="$PROJECT_DIR$/module/Application/view/application/profile/edit.phtml" />
         <option value="$PROJECT_DIR$/module/Authentication/src/Controller/RegisterController.php" />
         <option value="$PROJECT_DIR$/module/Authentication/src/Filter/UpdateFilter.php" />
         <option value="$PROJECT_DIR$/module/Application/src/Controller/ProfileController.php" />
+        <option value="$PROJECT_DIR$/module/Application/src/Entity/User.php" />
+        <option value="$PROJECT_DIR$/module/Application/view/partial/userProfile.phtml" />
+        <option value="$PROJECT_DIR$/public_html/css/style.css" />
+        <option value="$PROJECT_DIR$/public_html/js/app-script.js" />
+        <option value="$PROJECT_DIR$/module/Application/view/application/index/main.phtml" />
+        <option value="$PROJECT_DIR$/module/Application/view/application/timeline/index.phtml" />
       </list>
     </option>
   </component>
@@ -200,8 +201,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -1194,6 +1193,8 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1201,16 +1202,16 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\wamp64\www\socnetwork.local\public_html\img" />
-      <recent name="C:\wamp64\www\socnetwork.local\module\Application\view\application\index" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\wamp64\www\socnetwork.local\module\Application\src\View\Helper" />
       <recent name="C:\wamp64\www\socnetwork.local\module\Application\src\Entity" />
+      <recent name="C:\wamp64\www\socnetwork.local\module\Application\src\View\Helper" />
       <recent name="C:\wamp64\www\socnetwork.local\public_html\img\user" />
       <recent name="C:\wamp64\www\socnetwork.local\public_html\js" />
       <recent name="C:\wamp64\www\socnetwork.local\public_html\css" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\socnetwork.local\public_html\img" />
+      <recent name="C:\wamp64\www\socnetwork.local\module\Application\view\application\index" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -1346,14 +1347,17 @@
       <workItem from="1494328062305" duration="6133000" />
       <workItem from="1494408752449" duration="205000" />
       <workItem from="1494408973683" duration="24178000" />
+      <workItem from="1494500826417" duration="3885000" />
+      <workItem from="1494521350389" duration="1835000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="268653000" />
+    <option name="totallyTimeSpent" value="274373000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="886" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.195625" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1387,11 +1391,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public_html/img/gallery/c.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public_html/img/gallery/girl1.jpg">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -1411,14 +1410,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/module/Application/src/View/Helper/GetAvatarUrl.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/module/Application/src/View/Helper/GetAvatarUrl.php" />
     <entry file="file://$PROJECT_DIR$/public_html/img/no-image.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -1428,14 +1420,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="462">
           <caret line="28" column="76" lean-forward="false" selection-start-line="28" selection-start-column="76" selection-end-line="28" selection-end-column="76" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/module/Application/view/application/index/main.phtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="84" column="59" lean-forward="false" selection-start-line="84" selection-start-column="54" selection-end-line="84" selection-end-column="59" />
           <folding />
         </state>
       </provider>
@@ -1453,24 +1437,8 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/img/gallery/3d-gray-cat-1024.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/module/Application/view/application/timeline/index.phtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="506">
-          <caret line="62" column="61" lean-forward="false" selection-start-line="62" selection-start-column="61" selection-end-line="62" selection-end-column="61" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/img/user/girl2.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/img/gallery/3d-gray-cat-1024.jpg" />
+    <entry file="file://$PROJECT_DIR$/public_html/img/user/girl2.jpg" />
     <entry file="file://$PROJECT_DIR$/public_html/img/user/1.jpg">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -1492,14 +1460,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/module/Application/src/Entity/User.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1562">
-          <caret line="95" column="18" lean-forward="false" selection-start-line="95" selection-start-column="18" selection-end-line="95" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/module/Application/view/application/profile/index.phtml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1516,17 +1476,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/img/gallery/i.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/img/gallery/i.jpg" />
     <entry file="file://$PROJECT_DIR$/module/Admin/src/Controller/UserController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="44">
           <caret line="112" column="4" lean-forward="true" selection-start-line="112" selection-start-column="4" selection-end-line="147" selection-end-column="5" />
           <folding>
-            <element signature="e#36#55#0#PHP" expanded="true" />
+            <element signature="e#36#55#0#PHP" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1543,14 +1499,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
           <caret line="26" column="13" lean-forward="true" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="265">
-          <caret line="168" column="12" lean-forward="false" selection-start-line="168" selection-start-column="1" selection-end-line="168" selection-end-column="12" />
           <folding />
         </state>
       </provider>
@@ -1584,7 +1532,7 @@
         <state relative-caret-position="220">
           <caret line="10" column="71" lean-forward="false" selection-start-line="10" selection-start-column="65" selection-end-line="10" selection-end-column="71" />
           <folding>
-            <element signature="e#42#96#0#PHP" expanded="true" />
+            <element signature="e#42#96#0#PHP" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1597,31 +1545,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/img/user/3.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/img/user/3.jpg" />
     <entry file="file://$PROJECT_DIR$/public_html/img/user/7.jpg">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/img/gallery/5.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/img/gallery/7.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/img/gallery/6.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/img/gallery/5.jpg" />
+    <entry file="file://$PROJECT_DIR$/public_html/img/gallery/7.jpg" />
+    <entry file="file://$PROJECT_DIR$/public_html/img/gallery/6.jpg" />
     <entry file="file://$PROJECT_DIR$/public_html/img/gallery/005.jpg">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -1643,52 +1575,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/module/Application/view/partial/userProfile.phtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/img/user/5.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/img/user/5_591354dfd0a0d.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/img/user/2.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/img/user/5.jpg" />
+    <entry file="file://$PROJECT_DIR$/public_html/img/user/5_591354dfd0a0d.jpg" />
+    <entry file="file://$PROJECT_DIR$/public_html/img/user/2.jpg" />
     <entry file="file://$PROJECT_DIR$/public_html/img/user/6.jpg">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/img/user/php67A8.tmp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/img/user/DSC_0069.JPG">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/img/user/61409aa1fd47d4a5332de23cbf59a36f.jpeg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/img/user/php67A8.tmp" />
+    <entry file="file://$PROJECT_DIR$/public_html/img/user/DSC_0069.JPG" />
+    <entry file="file://$PROJECT_DIR$/public_html/img/user/61409aa1fd47d4a5332de23cbf59a36f.jpeg" />
     <entry file="file://$PROJECT_DIR$/module/Authentication/src/Form/UpdateForm.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="488">
@@ -1704,20 +1601,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/module/Authentication/src/Filter/UpdateFilter.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2359">
+        <state relative-caret-position="0">
           <caret line="2" column="10" lean-forward="false" selection-start-line="2" selection-start-column="10" selection-end-line="2" selection-end-column="32" />
           <folding>
-            <element signature="e#41#74#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/module/Application/src/Controller/ProfileController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2354">
-          <caret line="25" column="47" lean-forward="true" selection-start-line="25" selection-start-column="47" selection-end-line="25" selection-end-column="47" />
-          <folding>
-            <element signature="e#42#78#0#PHP" expanded="true" />
+            <element signature="e#41#74#0#PHP" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1735,6 +1622,64 @@
     <entry file="file://$PROJECT_DIR$/public_html/img/user/John.jpg">
       <provider selected="true" editor-type-id="images">
         <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/module/Application/src/Entity/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="98" column="19" lean-forward="true" selection-start-line="98" selection-start-column="19" selection-end-line="98" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/module/Application/view/partial/userProfile.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="506">
+          <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/module/Application/src/Controller/ProfileController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="25" column="47" lean-forward="false" selection-start-line="25" selection-start-column="47" selection-end-line="25" selection-end-column="47" />
+          <folding>
+            <element signature="e#42#78#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="413">
+          <caret line="195" column="1" lean-forward="true" selection-start-line="195" selection-start-column="1" selection-end-line="195" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/js/app-script.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="268">
+          <caret line="241" column="89" lean-forward="false" selection-start-line="241" selection-start-column="89" selection-end-line="241" selection-end-column="89" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/module/Application/view/application/index/main.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="103" column="70" lean-forward="false" selection-start-line="103" selection-start-column="70" selection-end-line="103" selection-end-column="70" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/module/Application/view/application/timeline/index.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="572">
+          <caret line="83" column="70" lean-forward="false" selection-start-line="83" selection-start-column="70" selection-end-line="83" selection-end-column="70" />
+          <folding />
+        </state>
       </provider>
     </entry>
   </component>

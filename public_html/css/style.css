@@ -202,3 +202,7 @@ li.already-liked {
 .delete-profile-button {
     margin-top: 3px;
 }
+
+.not-active {
+    color: #d00;
+}
