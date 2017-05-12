@@ -1,4 +1,8 @@
 <?php
+if (! $this->identity()) {
+    $this->headScript()->appendScript('$(function(){$("ul.contact-us-no-identified-user li").eq(0).addClass("active");})');
+}
+
 $headTitle = 'Contact Us';
 $this->headTitle($headTitle);
 
