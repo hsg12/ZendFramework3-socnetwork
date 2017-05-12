@@ -110,6 +110,18 @@ class UpdateForm extends Form
         ]);
         $this->add($file);
 
+        $active = new Element\Radio('active');
+        $active->setLabel('Active:');
+        $active->setAttributes([
+            'class' => 'radio-block',
+            'id'    => 'active',
+        ]);
+        $active->setValueOptions(array(
+            '0' => ' No',
+            '1' => ' Yes',
+        ));
+        $this->add($active);
+
         $submit = new Element\Submit('submit');
         $submit->setAttributes([
             'class' => 'btn btn-default',

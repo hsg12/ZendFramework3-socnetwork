@@ -52,7 +52,6 @@ class LoginController extends AbstractActionController
 
                 /* if ($result === false) it means user profile deleted */
                 $result = $this->isUserActive($user->getUsername());
-                //var_dump($result); exit;
                 if ($result === false) {
                     $incorrect = 'Profile deleted';
                 } else {

@@ -135,6 +135,9 @@ class Module
                     if (! $controller->identity()) {
                         return $controller->redirect()->toRoute('home');
                     }
+                    if (! $controller->isUserActive($controller->identity()->getUsername())) {
+                        return $controller->redirect()->toRoute('home');
+                    }
                 }
             },
             100

@@ -105,6 +105,21 @@ class UpdateFilter extends InputFilter
         ]);
 
         $this->add([
+            'name'       => 'active',
+            'validators' => [
+                [
+                    'name'    => 'InArray',
+                    'options' => [
+                        'haystack' => array(0, 1),
+                        'messages' => array(
+                            \Zend\Validator\InArray::NOT_IN_ARRAY => 'Please select right value!'
+                        ),
+                    ],
+                ],
+            ],
+        ]);
+
+        $this->add([
             'type'     => FileInput::class,
             'name'     => 'file',
             'required' => false,

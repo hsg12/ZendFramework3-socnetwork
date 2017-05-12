@@ -48,7 +48,7 @@ class UserController extends AbstractActionController
         $form = $this->updateForm;
         $form->setHydrator(new DoctrineObject($this->entityManager));
         $form->bind($user);
-        $form->setValidationGroup('role');
+        $form->setValidationGroup(['role', 'active']);
 
         $request = $this->getRequest();
         if ($request->isPost()) {

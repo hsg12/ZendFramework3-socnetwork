@@ -10,6 +10,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Zend\View\Model\ViewModel;
 use DoctrineModule\Stdlib\Hydrator\DoctrineObject;
 use Authentication\Form\UpdateForm;
+use Authentication\Controller\LogoutController;
 
 class ProfileController extends AbstractActionController
 {
@@ -34,7 +35,7 @@ class ProfileController extends AbstractActionController
         $username = $this->clearString($username);
         $user = $this->repository->findOneBy(['username' => $username]);
 
-        if (! $user || ! $this->isUserActive($username)) {
+        if (! $user) {
             return $this->notFoundAction();
         }
 
@@ -75,7 +76,7 @@ class ProfileController extends AbstractActionController
         $username = $this->clearString($username);
         $user = $this->repository->findOneBy(['username' => $username]);
 
-        if (! $user) {
+        if (! $user || ! $this->isUserActive($username)) {
             return $this->notFoundAction();
         }
 
@@ -98,6 +99,9 @@ class ProfileController extends AbstractActionController
 
             // Remove 'role' from validationGroup (We do not need 'role' in this form)
             $form->getInputFilter()->remove('role');
+
+            // Remove 'active' from validationGroup (We do not need 'active' in this form)
+            $form->getInputFilter()->remove('active');
 
             // Remove 'password' from validationGroup if we do not want to change password
             if ($form->get("password")->getValue() == ""){
@@ -177,30 +181,11 @@ class ProfileController extends AbstractActionController
             return $this->notFoundAction();
         }
 
-        /* Block for deletion user profile image on server */
-        $userImage = $user->getImage();
-        if ($userImage) {
-            if (is_file(getcwd() . '/public_html' . $userImage)) {
-                unlink(getcwd() . '/public_html' . $userImage);
-            }
-        }
-        /* End block */
+        $user->setActive('0');
 
-        /* Block for deletion gallery image on server */
-        $gallery = $this->galleryRepository->findBy(['user' => $user]);
-
-        array_walk($gallery, function ($imgObj) {
-            if ($imgObj) {
-                if (is_file(getcwd() . '/public_html' . $imgObj->getImage())) {
-                    unlink(getcwd() . '/public_html' . $imgObj->getImage());
-                }
-            }
-        });
-        /* End block */
-
-        $this->entityManager->remove($user);
+        $this->entityManager->persist($user);
         $this->entityManager->flush();
 
-        return $this->redirect()->toRoute('home');
+        return $this->forward()->dispatch(LogoutController::class, ['action' => 'index']);
     }
 }

@@ -271,6 +271,10 @@ $(document).ready(function(){
         }
     });
 
+/////////
+
+    $('input.radio-block').parent('label').css('marginRight', '10px');
+
 /////////   END   ///////////////////////////////////////////////////////////////////////
 
 });

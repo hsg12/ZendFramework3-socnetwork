@@ -26,6 +26,10 @@ class FriendController extends AbstractActionController
         $userAllFriends = false;
         $usersRequest   = false;
 
+        if (! $user) {
+            return $this->notFoundAction();
+        }
+
         $userAllFriends = $this->getUserFriends($this->entityManager, $user);
 
         $pendingRequest = $this->repository->pendingRequest($user->getId());

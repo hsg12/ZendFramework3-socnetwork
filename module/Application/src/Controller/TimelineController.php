@@ -33,6 +33,7 @@ class TimelineController extends AbstractActionController
     public function indexAction()
     {
         $status = new Status();
+        $pageNumber = 0;
         $form = $this->getAnnotationForm($this->entityManager, $status);
         $form->setValidationGroup(['content']);
 
@@ -55,7 +56,10 @@ class TimelineController extends AbstractActionController
                            ->getFriends($this->identity()->getId());
 
         $paginator = $this->getUserStatuses($hasFriends);
-        $pageNumber = (int)$paginator->getCurrentPageNumber();
+
+        if ($paginator && is_object($paginator)) {
+            $pageNumber = (int)$paginator->getCurrentPageNumber();
+        }
 
         return new ViewModel([
             'form'       => $form,
