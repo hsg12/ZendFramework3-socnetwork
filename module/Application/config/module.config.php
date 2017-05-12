@@ -146,9 +146,9 @@ return [
                 'label' => 'Timeline',
                 'route' => 'timeline',
             ],
-            'friends' => [
-                'label' => 'Friends',
-                'route' => 'friend',
+            'contact' => [
+                'label' => 'Contact Us',
+                'route' => 'contact-us',
             ],
         ],
     ],

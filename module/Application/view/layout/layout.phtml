@@ -78,6 +78,7 @@
                                 </a>
                                 <ul class="dropdown-menu" role="menu">
                                     <li><a href="<?= $this->url('profile', ['username' => $user->getUsername()]) ?>">Profile</a></li>
+                                    <li><a href="<?= $this->url('friend') ?>">Friends</a></li>
                                     <li>
                                         <a href="<?= $this->url('profile', ['username' => $user->getUsername(), 'action' => 'edit']) ?>">
                                             Update profile
