@@ -147,7 +147,7 @@ return [
                 'route' => 'timeline',
             ],
             'contact' => [
-                'label' => 'Contact Us',
+                'label' => 'Contact',
                 'route' => 'contact-us',
             ],
         ],
