@@ -20,9 +20,9 @@ $this->headTitle($headTitle);
         </div>
         <hr>
         <?php if ($this->pendingAnswerIdentityUser) : ?> <!-- request information for identified user -->
-            <p>Waiting for <strong><?= $this->getNameOrUsername($this, $this->user) ?></strong> to accept your request</p>
+            <p>Waiting for <strong><?= $this->getNameOrUsername($this, $this->user) ?></strong> to accept your friendship request</p>
         <?php elseif ($this->pendingAnswerUser) : ?> <!-- request information for not identified user -->
-            <p><strong><?= $this->getNameOrUsername($this, $this->user) ?></strong> sent request to you</p>
+            <p><strong><?= $this->getNameOrUsername($this, $this->user) ?></strong> sent friendship request to you</p>
         <?php else : ?>
             <?php if (! $this->isFriends && $this->user->getId() != $this->identity()->getId()) : ?>
                 <form action="<?= $this->url('friend', ['action' => 'add', 'username' => $this->user->getUsername()]) ?>" method="post">

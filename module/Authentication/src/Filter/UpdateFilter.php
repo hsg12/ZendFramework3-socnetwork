@@ -126,7 +126,7 @@ class UpdateFilter extends InputFilter
             'allowEmpty' => true,
             'validators' => [
                 ['name'    => 'FileUploadFile'],
-                ['name'    => 'FileIsImage'],
+                // ['name'    => 'FileIsImage'], /* Did not work on server */
                 [
                     'name' => 'Zend\Validator\File\Extension',
                     'options' => [
