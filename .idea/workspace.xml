@@ -1,39 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1a3d7dc5-3931-4544-99a3-c899c3d9bce0" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/img/gallery/005.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/img/gallery/057.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/img/gallery/071.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/img/gallery/111.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/img/gallery/15.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/img/gallery/1600_Little Hummingbirds.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/img/gallery/1600_Swine Flu.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/img/gallery/181.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/img/gallery/216.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/img/gallery/24.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/img/gallery/241 1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/img/gallery/37.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/img/gallery/c.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/img/gallery/girl1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/img/gallery/girl2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/img/gallery/girl3.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/img/gallery/girl4.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/img/gallery/robot2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/img/gallery/robot3.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/img/user/1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/img/user/6.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/img/user/7.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/img/user/Edgar.JPG" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/img/user/Paul.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/img/user/i.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public_html/img/user/mary.jpg" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/Application/src/Entity/Gallery.php" afterPath="$PROJECT_DIR$/module/Application/src/Entity/Gallery.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/Application/view/application/profile/index.phtml" afterPath="$PROJECT_DIR$/module/Application/view/application/profile/index.phtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/Authentication/src/Filter/UpdateFilter.php" afterPath="$PROJECT_DIR$/module/Authentication/src/Filter/UpdateFilter.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/ContactUs/config/module.config.php" afterPath="$PROJECT_DIR$/module/ContactUs/config/module.config.php" />
-    </list>
+    <list default="true" id="1a3d7dc5-3931-4544-99a3-c899c3d9bce0" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -866,16 +834,15 @@
       <workItem from="1494581162677" duration="5411000" />
       <workItem from="1494595084537" duration="2410000" />
       <workItem from="1494598889330" duration="4055000" />
-      <workItem from="1494755381729" duration="4001000" />
+      <workItem from="1494755381729" duration="4059000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="302669000" />
+    <option name="totallyTimeSpent" value="302727000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="886" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1675" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
